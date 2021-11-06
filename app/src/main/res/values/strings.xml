@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">2</string>
+    <string name="to_second">to second</string>
+    <string name="about">about</string>
+    <string name="to_first">to First</string>
+    <string name="to_fird">to Third</string>
+    <string name="about_activity">About Activity</string>
+    <string name="third_activty">Third Activity</string>
+    <string name="second_ctivity">Second Activity</string>
+    <string name="first_activity">First Activity</string>
+    <string name="to_browser">to Browser</string>
+    <string name="web_activity">Web Activity</string>
+</resources>
