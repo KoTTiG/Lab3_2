@@ -3,8 +3,9 @@ package com.lab32
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_third.*
+
 
 
 class ThirdActivity : AppCompatActivity() {
@@ -16,8 +17,7 @@ class ThirdActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
-
-        activity_third_tofirst_button.setOnClickListener {
+        findViewById<View>(R.id.bnToFirst).setOnClickListener {
             //Решение 1
             //setResult(TO_FIRST)
             val intent = Intent(this, MainActivity::class.java).apply {
@@ -26,19 +26,21 @@ class ThirdActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        activity_third_tosecond_button.setOnClickListener {
+        findViewById<View>(R.id.bnToSecond).setOnClickListener {
             //Решение 1
             //setResult(TO_SECOND)
             finish()
         }
-        val bottomNavView = findViewById<BottomNavigationView>(R.id.activity_third_bottom_nav)
-        bottomNavView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
+        val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNavView.setOnItemSelectedListener {
+            when (it.itemId) {
                 R.id.about -> {
-                    startActivity(Intent(this, AboutActivity::class.java))
+                    val intent = Intent(this, ActivityAbout::class.java)
+                    this.startActivity(intent)
+                    return@setOnItemSelectedListener true
                 }
             }
-            true
+            false
         }
 
     }

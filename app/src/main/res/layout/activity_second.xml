@@ -4,30 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SecondActivity">
+    tools:context=".SecondActivity"
+    android:id="@+id/activity_second">
 
     <Button
-        android:id="@+id/activity_second_tofirst_button"
+        android:id="@+id/bnToFirst"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/to_first"
-        app:layout_constraintBottom_toTopOf="@+id/activity_second_tothird_button"
+        app:layout_constraintBottom_toTopOf="@+id/bnToThird"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/activity_second_tothird_button"
+        android:id="@+id/bnToThird"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/to_fird"
-        app:layout_constraintBottom_toTopOf="@+id/activity_second_bottom_nav"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_second_tofirst_button" />
+        app:layout_constraintTop_toBottomOf="@+id/bnToFirst" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/activity_second_bottom_nav"
+        android:id="@+id/bottom_nav"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"

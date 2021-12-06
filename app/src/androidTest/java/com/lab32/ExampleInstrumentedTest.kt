@@ -32,57 +32,57 @@ class HelloWorldEspressoTest {
 
     @Test
     fun passageInOrder() {
-        onView(withId(R.id.act_main_to_second_button)).perform(click())
+        onView(withId(R.id.bnToSecond)).perform(click())
         Intents.intended(IntentMatchers.hasComponent(SecondActivity::class.java.name))
-        onView(withId(R.id.activity_second_tothird_button)).perform(click())
+        onView(withId(R.id.bnToThird)).perform(click())
         Intents.intended(IntentMatchers.hasComponent(ThirdActivity::class.java.name))
-        onView(withId(R.id.activity_third_tosecond_button))
+        onView(withId(R.id.bnToSecond))
         Intents.intended(IntentMatchers.hasComponent(SecondActivity::class.java.name))
     }
 
     @Test
     fun testBottomNavMain() {
         onView(withId(R.id.about)).perform(click())
-        Intents.intended(IntentMatchers.hasComponent(AboutActivity::class.java.name))
+        Intents.intended(IntentMatchers.hasComponent(ActivityAbout::class.java.name))
     }
 
     @Test
     fun testBottomNavSecond() {
-        onView(withId(R.id.act_main_to_second_button)).perform(click())
+        onView(withId(R.id.bnToSecond)).perform(click())
         onView(withId(R.id.about)).perform(click())
-        Intents.intended(IntentMatchers.hasComponent(AboutActivity::class.java.name))
+        Intents.intended(IntentMatchers.hasComponent(ActivityAbout::class.java.name))
     }
 
     @Test
     fun testBottomNavThird() {
-        onView(withId(R.id.act_main_to_second_button)).perform(click())
-        onView(withId(R.id.activity_second_tothird_button)).perform(click())
+        onView(withId(R.id.bnToSecond)).perform(click())
+        onView(withId(R.id.bnToThird)).perform(click())
         onView(withId(R.id.about)).perform(click())
-        Intents.intended(IntentMatchers.hasComponent(AboutActivity::class.java.name))
+        Intents.intended(IntentMatchers.hasComponent(ActivityAbout::class.java.name))
         onView(withId(R.id.activity_about_tobrowser_button)).perform(click())
         Intents.intended(IntentMatchers.hasComponent(WebActivity::class.java.name))
     }
 
     @Test
     fun testStack() {
-        onView(withId(R.id.act_main_to_second_button)).perform(click())
+        onView(withId(R.id.bnToSecond)).perform(click())
         Espresso.pressBack()
         Intents.intended(IntentMatchers.anyIntent())
-        onView(withId(R.id.act_main_to_second_button)).perform(click())
-        onView(withId(R.id.activity_second_tothird_button)).perform(click())
+        onView(withId(R.id.bnToSecond)).perform(click())
+        onView(withId(R.id.bnToThird)).perform(click())
         Espresso.pressBack()
         Espresso.pressBack()
-        onView(withId(R.id.act_main_to_second_button)).perform(click())
-        onView(withId(R.id.activity_second_tothird_button)).perform(click())
-        onView(withId(R.id.activity_third_tofirst_button)).perform(click())
+        onView(withId(R.id.bnToSecond)).perform(click())
+        onView(withId(R.id.bnToThird)).perform(click())
+        onView(withId(R.id.bnToFirst)).perform(click())
     }
 
     @Test
     fun testScreenOrientation() {
         activityRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-        onView(withId(R.id.act_main_to_second_button)).perform(click())
+        onView(withId(R.id.bnToSecond)).perform(click())
         activityRule.activity.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        onView(withId(R.id.activity_second_tothird_button)).perform(click())
+        onView(withId(R.id.bnToThird)).perform(click())
         Intents.intended(IntentMatchers.hasComponent(ThirdActivity::class.java.name))
 
     }

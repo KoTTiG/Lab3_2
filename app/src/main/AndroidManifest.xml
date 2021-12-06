@@ -18,7 +18,7 @@
             android:label="@string/web_activity"
             android:launchMode="singleTask" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".ActivityAbout"
             android:label="@string/about_activity" />
         <activity
             android:name=".ThirdActivity"
@@ -28,7 +28,8 @@
             android:label="@string/second_ctivity" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/first_activity">
+            android:label="@string/first_activity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

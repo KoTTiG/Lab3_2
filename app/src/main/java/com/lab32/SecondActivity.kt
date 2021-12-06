@@ -3,31 +3,32 @@ package com.lab32
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import kotlinx.android.synthetic.main.activity_second.*
+
 
 class SecondActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_second)
-        activity_second_tofirst_button.setOnClickListener {
+        findViewById<View>(R.id.bnToFirst).setOnClickListener {
             finish()
         }
-
-        activity_second_tothird_button.setOnClickListener {
+        findViewById<View>(R.id.bnToThird).setOnClickListener {
             startActivity(Intent(this, ThirdActivity::class.java))
-       }
+        }
 
-
-        val bottomNavView = findViewById<BottomNavigationView>(R.id.activity_second_bottom_nav)
-        bottomNavView.setOnNavigationItemSelectedListener { item ->
-            when (item.itemId) {
+        val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_nav)
+        bottomNavView.setOnItemSelectedListener {
+            when (it.itemId) {
                 R.id.about -> {
-                    startActivity(Intent(this, AboutActivity::class.java))
+                    val intent = Intent(this, ActivityAbout::class.java)
+                    this.startActivity(intent)
+                    return@setOnItemSelectedListener true
                 }
             }
-            true
+            false
         }
     }
    /*
