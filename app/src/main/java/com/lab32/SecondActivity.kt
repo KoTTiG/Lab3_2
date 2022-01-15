@@ -21,17 +21,17 @@ class SecondActivity : AppCompatActivity() {
 
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_nav)
         bottomNavView.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.about -> {
-                    val intent = Intent(this, ActivityAbout::class.java)
-                    this.startActivity(intent)
-                    return@setOnItemSelectedListener true
+                when (it.itemId) {
+                    R.id.about -> {
+                        val intent = Intent(this, ActivityAbout::class.java)
+                        this.startActivity(intent)
+                        return@setOnItemSelectedListener true
+                    }
                 }
-            }
-            false
+                false
         }
     }
-   /*
+
    //Решение 1
 
    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -43,5 +43,5 @@ class SecondActivity : AppCompatActivity() {
        }
     }
 
-   */
+
 }

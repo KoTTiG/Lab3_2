@@ -18,8 +18,7 @@ class ThirdActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_third)
         findViewById<View>(R.id.bnToFirst).setOnClickListener {
-            //Решение 1
-            //setResult(TO_FIRST)
+            setResult(TO_FIRST)
             val intent = Intent(this, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_CLEAR_TOP
             }
@@ -27,8 +26,7 @@ class ThirdActivity : AppCompatActivity() {
         }
 
         findViewById<View>(R.id.bnToSecond).setOnClickListener {
-            //Решение 1
-            //setResult(TO_SECOND)
+            setResult(TO_SECOND)
             finish()
         }
         val bottomNavView = findViewById<BottomNavigationView>(R.id.bottom_nav)
